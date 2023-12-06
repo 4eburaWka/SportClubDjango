@@ -1,0 +1,198 @@
+[
+  {
+    "model": "users.coach",
+    "pk": 1,
+    "fields": {
+      "last_name": "Серебряник",
+      "first_name": "Василий",
+      "surname": "Анатолиевич",
+      "phone_number": "375441578489",
+      "profile_photo": "/media/image1.png"
+    }
+  },
+  {
+    "model": "users.coach",
+    "pk": 2,
+    "fields": {
+      "last_name": "Пряник",
+      "first_name": "Мария",
+      "surname": "Сергеевна",
+      "phone_number": "3757451232",
+      "profile_photo": "/media/image2.png"
+    }
+  },
+  {
+    "model": "users.coach",
+    "pk": 3,
+    "fields": {
+      "last_name": "Иванов",
+      "first_name": "Александр",
+      "surname": "Николаевич",
+      "phone_number": "3752958741236",
+      "profile_photo": "/media/image3.png"
+    }
+  },
+  {
+    "model": "users.client",
+    "pk": 1,
+    "fields": {
+      "last_name": "Сидорович",
+      "first_name": "Семен",
+      "surname": "Яковлевич",
+      "phone_number": "375297425645",
+      "coach": 1
+    }
+  },
+  {
+    "model": "users.client",
+    "pk": 2,
+    "fields": {
+      "last_name": "Степаненко",
+      "first_name": "Степан",
+      "surname": "Афанасьевич",
+      "phone_number": "375445127834",
+      "coach": 2
+    }
+  },
+  {
+    "model": "users.client",
+    "pk": 3,
+    "fields": {
+      "last_name": "Влакса",
+      "first_name": "Анна",
+      "surname": "Петровна",
+      "phone_number": "375251515151",
+      "coach": 3
+    }
+  },
+  {
+    "model": "users.result",
+    "pk": 1,
+    "fields": {
+      "client": 1,
+      "datetime": "2020-09-04T17:10:25Z",
+      "type_of_result": 1,
+      "value": 5
+    }
+  },
+  {
+    "model": "users.result",
+    "pk": 2,
+    "fields": {
+      "client": 1,
+      "datetime": "2020-11-21T17:10:44Z",
+      "type_of_result": 1,
+      "value": 3
+    }
+  },
+  {
+    "model": "users.result",
+    "pk": 3,
+    "fields": {
+      "client": 3,
+      "datetime": "2021-06-10T17:10:58Z",
+      "type_of_result": 2,
+      "value": 5
+    }
+  },
+  {
+    "model": "trainings.training",
+    "pk": 1,
+    "fields": {
+      "name": "Тренировка ног",
+      "duration": "01:30:00",
+      "description": "Полуторачасовая тренировка мышц ног",
+      "cost": 20
+    }
+  },
+  {
+    "model": "trainings.training",
+    "pk": 2,
+    "fields": {
+      "name": "Тренировка мышц спины",
+      "duration": "01:30:00",
+      "description": "Полуторачасовая тренировка мышц спины",
+      "cost": 30
+    }
+  },
+  {
+    "model": "trainings.training",
+    "pk": 3,
+    "fields": {
+      "name": "Кардио-тренировка",
+      "duration": "01:00:00",
+      "description": "Кардио-тренировка",
+      "cost": 15
+    }
+  },
+  {
+    "model": "trainings.subscription",
+    "pk": 1,
+    "fields": {
+      "name": "Тренировка всего тел",
+      "cost": 55,
+      "is_active": true,
+      "available_trainings": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "trainings.subscription",
+    "pk": 2,
+    "fields": {
+      "name": "Стань суперменом",
+      "cost": 48,
+      "is_active": true,
+      "available_trainings": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "trainings.subscription",
+    "pk": 3,
+    "fields": {
+      "name": "Прогрев",
+      "cost": 35,
+      "is_active": true,
+      "available_trainings": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "trainings.purchasedsubscription",
+    "pk": 1,
+    "fields": {
+      "subscription": 1,
+      "purchase_date": "2020-05-21",
+      "expiration_date": "2020-06-21",
+      "client": 1
+    }
+  },
+  {
+    "model": "trainings.purchasedsubscription",
+    "pk": 2,
+    "fields": {
+      "subscription": 2,
+      "purchase_date": "2020-05-21",
+      "expiration_date": "2020-06-14",
+      "client": 3
+    }
+  },
+  {
+    "model": "trainings.purchasedsubscription",
+    "pk": 3,
+    "fields": {
+      "subscription": 1,
+      "purchase_date": "2020-05-21",
+      "expiration_date": "2020-06-21",
+      "client": 2
+    }
+  }
+]
