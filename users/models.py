@@ -3,20 +3,28 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Client(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='client')
-
+class Coach(models.Model):
     last_name = models.CharField(max_length=20, blank=True)
     first_name = models.CharField(max_length=20, blank=True)
     surname = models.CharField(max_length=20, blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
 
-    def __str__(self):
-        return self.user.username
-
-
-class Coach(Client):
     profile_photo = models.ImageField()
+
+    def __str__(self):
+        return f"{self.last_name} {self.first_name} {self.surname}"
+
+
+class Client(models.Model):
+    last_name = models.CharField(max_length=20, blank=True)
+    first_name = models.CharField(max_length=20, blank=True)
+    surname = models.CharField(max_length=20, blank=True)
+    phone_number = models.CharField(max_length=20, blank=True)
+
+    coach = models.ForeignKey(Coach, on_delete=models.SET_NULL, related_name='clients', null=True)
+
+    def __str__(self):
+        return f"{self.last_name} {self.first_name} {self.surname}"
 
 
 ResulTypes = (
@@ -33,4 +41,4 @@ class Result(models.Model):
     value = models.IntegerField()
 
     def __str__(self):
-        return f"{self.client} {list(filter(lambda x: x[0] == self.type_of_result, ResulTypes))[1]} {self.value}"
+        return f"Результат клиента {self.client}"

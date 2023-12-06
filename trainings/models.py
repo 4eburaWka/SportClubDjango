@@ -15,7 +15,7 @@ class Training(models.Model):
 
 class Subscription(models.Model):
     name = models.CharField(max_length=20)
-    available_trainings = models.ForeignKey(Training, on_delete=models.CASCADE, related_name='subscriptions')
+    available_trainings = models.ManyToManyField(Training, related_name='subscriptions')
     cost = models.IntegerField()
     is_active = models.BooleanField(default=True)
 
